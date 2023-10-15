@@ -1,0 +1,6 @@
+- name: delete
+  hosts: remote
+  tasks:
+    - file:
+        path: temp.conf  
+        state: absent

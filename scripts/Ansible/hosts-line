@@ -1,0 +1,9 @@
+[controller]
+server10 ansible_host=10.40.0.141    ansible_user=ansible
+
+[remote]
+server11 ansible_host=10.40.0.175    ansible_user=ansible
+server01 ansible_host=10.40.0.105    ansible_user=ansible
+#server02 ansible_host=192.168.0.38  ansible_user=ansible
+#server03 ansible_host=192.168.0.71  ansible_user=ansible
+

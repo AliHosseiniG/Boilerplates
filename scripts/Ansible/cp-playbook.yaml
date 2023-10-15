@@ -1,0 +1,11 @@
+- name: copy
+  hosts: remote
+  gather_facts: no  # Disable gathering facts
+
+  tasks:
+    - copy:
+        src: temp.conf  
+        dest: temp.conf
+        mode: 0777
+        owner: ansible
+        group: ansible

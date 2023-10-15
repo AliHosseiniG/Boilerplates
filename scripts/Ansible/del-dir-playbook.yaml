@@ -1,0 +1,21 @@
+---
+- name: Delete directories starting with "test"
+  hosts: remote
+  become: yes  # Use sudo to have necessary permissions
+
+  tasks:
+    - name: Find directories to delete
+      find:
+        paths: /home/ansible/  # Specify the parent directory
+        patterns: "te*"
+        recurse: yes
+        file_type: directory
+
+      register: found_directories
+
+    - name: Delete found directories
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      with_items: "{{ found_directories.files }}"
+
