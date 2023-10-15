@@ -1,0 +1,14 @@
+---
+- name: check file ownership
+  hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: get file info
+    stat:
+      path: /home/ansible/temp.txt
+    register: file_info
+  - name: owned by {{ file_info.stat.pw_name }}  user
+    debug:
+      msg:  file is owned by the {{ file_info.stat.pw_name }} user
+        #when: file_info.stat.pw_name == 'ubuntu'

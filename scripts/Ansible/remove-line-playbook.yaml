@@ -1,0 +1,11 @@
+# This task will search for a line with the content “Remove this line” in the file and remove it if found.
+#
+
+- name: remove line
+  hosts: remote
+  tasks:
+    - name: Remove a line  
+      lineinfile:  
+        path: /home/ansible/temp3.txt
+        regexp: Remove this line
+        state: absent 

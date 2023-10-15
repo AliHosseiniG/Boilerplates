@@ -1,0 +1,12 @@
+# lineinfile module will look for “AllowPassword” in the demo.conf file and replace it with “AllowPasswords yes” using the line parameter.
+# To replace a line, you need to provide a regular expression pattern using the regexp parameter and the line parameter containing the new line.
+# If there is not exist with the regexp, it make a new line 
+
+- name: remove line
+  hosts: remote
+  tasks:
+    - name: Remove a line  
+      lineinfile:  
+        path: /home/ansible/temp3.txt
+        regexp: ^AllowPassword
+        line: AllowPasswords yes

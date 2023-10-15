@@ -4,8 +4,10 @@
 
   tasks:
     - copy:
-        src: temp.conf  
-        dest: temp.conf
+        src: /home/ansible/temp.conf  
+        dest: /home/ansible/temp123.conf
         mode: 0777
         owner: ansible
         group: ansible
+        backup: yes
+        remote_src: yes

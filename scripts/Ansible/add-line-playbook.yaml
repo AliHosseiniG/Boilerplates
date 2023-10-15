@@ -1,0 +1,14 @@
+#In this playbook, the file "temp.txt" will be amended to include "This new line" in the example. 
+#The new line is added to the EOF, i.e., the end of the file. 
+#The line won't be concatenated if it already exists.
+
+- name: add line
+  hosts: remote
+  tasks:
+  - name: create file and add line
+    lineinfile:
+      path: /home/ansible/temp3.txt
+      line: This is a new line
+      state: present
+      create: true
+      mode: 0777
